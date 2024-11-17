@@ -6,12 +6,16 @@
 
 void* startModMenuThread(JavaVM* vm) {
     JNIEnv* env;
+    LOGE("thread::", "Thread foi iniciada com sucesso");
     
     if (vm->AttachCurrentThread(&env, nullptr) != JNI_OK) {
         LOGE("thread::", "Falha ao anexar a thread");
         return nullptr;
     }
 
+    LOGE("thread::", "Thread foi anexada");
+    jclass clazz = env->FindClass("java/lang/Class");
+    LOGI("thread::", "FindClass", clazz);
     return nullptr;
 }
 
@@ -22,6 +26,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
         return JNI_ERR;
     }
 
-    LOGI("LOAD::", "Sucesso no carregamento");
+    LOGI("load::", "Sucesso no carregamento");
     return JNI_VERSION_1_6;
 }

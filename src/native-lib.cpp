@@ -6,7 +6,7 @@
 void* startModMenuThread(JavaVM* vm) {
     JNIEnv* env;
     
-    if (vm->AttachCurrentThread(reinterpret_,cast<void**>(&env)) != JNI_OK) {
+    if (vm->AttachCurrentThread((void*)&env) != JNI_OK) {
         return JNI_ERR;
     }
     
@@ -16,7 +16,7 @@ void* startModMenuThread(JavaVM* vm) {
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
     JNIEnv* env;
     
-    if (vm->GetEnv(reinterpret_,cast<void**>(&env), JNI_VERSION_1_6) != JNI_OK) {
+    if (vm->GetEnv((void**)&env, JNI_VERSION_1_6) != JNI_OK) {
         return JNI_ERR;
     }
 

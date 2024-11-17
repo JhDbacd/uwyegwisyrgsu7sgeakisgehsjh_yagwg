@@ -11,7 +11,7 @@ cmake -H. \
 -B./build/releases/armeabi-v7a \
 -DANDROID_ABI=armeabi-v7a \
 -DANDROID_PLATFORM=android-30 \
--DCMAKE_BUILD_TYPE=Release
+-DCMAKE_BUILD_TYPE=Release \
 -DANDROID_NDK=$ANDROID_NDK \
 -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake
 cd build/releases/armeabi-v7a

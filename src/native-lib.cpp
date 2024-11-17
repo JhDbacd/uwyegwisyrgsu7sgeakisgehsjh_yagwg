@@ -18,7 +18,7 @@ void* startModMenuThread(JavaVM* vm) {
     jclass clazz = env->FindClass("java/lang/Class");
     char str[255] = {0};
     sprintf(str, "FindClass: %p", str);
-    LOGI("thread::", str);
+    LOGI("thread::", (const char*)str);
     return nullptr;
 }
 

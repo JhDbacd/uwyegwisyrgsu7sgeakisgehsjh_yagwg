@@ -1,4 +1,4 @@
-name: Configuration
+name: Build
 
 on:
   workflow_dispatch:  
@@ -10,7 +10,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Run configuration shell script
+      - name: Run build shell script
         run: |
-            bash config.sh
-            ls
+            bash build.sh

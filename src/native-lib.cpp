@@ -5,11 +5,13 @@
 #define LOGI(tag, ...) __android_log_print(ANDROID_LOG_INFO, tag, __VA_ARGS__)
 #define LOGE(tag, ...) __android_log_print(ANDROID_LOG_ERROR, tag, __VA_ARGS__)
 
-void* startModMenuThread(JavaVM* vm) {
+JavaVM *g_jvm;
+
+void* startModMenuThread(void* arg) {
     JNIEnv* env;
     LOGE("thread::", "Thread foi iniciada com sucesso");
     
-    if (vm->AttachCurrentThread(&env, nullptr) != JNI_OK) {
+    if (g_jvm->AttachCurrentThread(&env, nullptr) != JNI_OK) {
         LOGE("thread::", "Falha ao anexar a thread");
         return nullptr;
     }
@@ -28,6 +30,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
     }
 
     LOGI("load::", "Sucesso no carregamento");
+    env->GetJavaVM(&g_jvm);
     pthread_t thread;
     pthread_create(&thread, nullptr, startModMenuThread, nullptr);
     return JNI_VERSION_1_6;

@@ -15,6 +15,7 @@ cmake -H. \
 -DANDROID_PLATFORM=android-30 \
 -DANDROID_NDK=$ANDROID_NDK \
 -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake
-ls build/realeses/armeabi-v7a
+cd build/realeses/armeabi-v7a
 make clean
-make ./build/realeses/armeabi-v7a
+make 
+ls 

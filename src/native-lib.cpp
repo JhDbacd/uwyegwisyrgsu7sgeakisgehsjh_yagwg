@@ -1,6 +1,6 @@
 #include <jni.h>
 #include <android/log.h>
-#include <stdio.h>
+#include <pthread.h>
 
 #define LOGI(tag, ...) __android_log_print(ANDROID_LOG_INFO, tag, __VA_ARGS__)
 #define LOGE(tag, ...) __android_log_print(ANDROID_LOG_ERROR, tag, __VA_ARGS__)
@@ -28,5 +28,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
     }
 
     LOGI("load::", "Sucesso no carregamento");
+    pthread_t thread;
+    pthread_create(&thread, nullptr, startModMenuThread, nullptr);
     return JNI_VERSION_1_6;
 }

@@ -9,14 +9,14 @@ JavaVM *g_jvm;
 
 void* startModMenuThread(void* arg) {
     JNIEnv* env;
-    LOGE("thread::", "Thread foi iniciada com sucesso");
+    LOGI("thread::", "Thread foi iniciada com sucesso");
     
     if (g_jvm->AttachCurrentThread(&env, nullptr) != JNI_OK) {
         LOGE("thread::", "Falha ao anexar a thread");
         return nullptr;
     }
 
-    LOGE("thread::", "Thread foi anexada");
+    LOGI("thread::", "Thread foi anexada");
     jclass clazz = env->FindClass("java/lang/Class");
     LOGI("thread::", "FindClass: %p", clazz);
     return nullptr;

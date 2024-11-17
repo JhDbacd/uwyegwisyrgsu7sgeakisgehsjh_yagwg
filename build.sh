@@ -7,6 +7,8 @@ curl -O https://github.com/Kitware/CMake/releases/download/v3.31.0/cmake-3.31.0-
 bash cmake-3.31.0-linux-x86_64.sh > /dev/null
 sudo apt-get update && sudo apt-get install -y build-essential > /dev/null
 mkdir -p build/realeses/armeabi-v7a
+ls $ANDROIR_NDK
+ls $ANDROID_NDK/build
 ls $ANDROID_NDK/build/cmake
 ls build/realeses/armeabi-v7a
 cmake -H. \

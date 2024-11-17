@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <android/log.h>
+#include <stdio.h>
 
 #define LOGI(tag, ...) __android_log_print(ANDROID_LOG_INFO, tag, __VA_ARGS__)
 #define LOGE(tag, ...) __android_log_print(ANDROID_LOG_ERROR, tag, __VA_ARGS__)
@@ -15,7 +16,9 @@ void* startModMenuThread(JavaVM* vm) {
 
     LOGE("thread::", "Thread foi anexada");
     jclass clazz = env->FindClass("java/lang/Class");
-    LOGI("thread::", "FindClass", clazz);
+    char str[255] = {0};
+    sprintf(str, "FindClass: %p", str);
+    LOGI("thread::", str);
     return nullptr;
 }
 

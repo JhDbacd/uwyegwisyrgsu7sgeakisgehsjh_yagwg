@@ -17,7 +17,7 @@ void* startModMenuThread(void* arg) {
     }
 
     LOGI("thread::", "Thread foi anexada");
-    jclass clazz = env->FindClass("java/lang/Class");
+    jclass clazz = env->FindClass("java/lang/Object");
     LOGI("thread::", "FindClass: %p", clazz);
     return nullptr;
 }
@@ -32,6 +32,8 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
     LOGI("load::", "Sucesso no carregamento");
     env->GetJavaVM(&g_jvm);
     pthread_t thread;
+    jclass clazz = env->FindClass("java/lang/Object");
+    LOGI("thread_ui::", "FindClass: %p", clazz);
     pthread_create(&thread, nullptr, startModMenuThread, nullptr);
     return JNI_VERSION_1_6;
 }

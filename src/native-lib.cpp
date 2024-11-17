@@ -7,7 +7,7 @@
 void* startModMenuThread(JavaVM* vm) {
     JNIEnv* env;
     
-    if (vm->AttachCurrentThread((void*)&env, nullptr) != JNI_OK) {
+    if (vm->AttachCurrentThread((void**)&env, nullptr) != JNI_OK) {
         LOGE("thread::", "Falha ao anexar a thread");
         return nullptr;
     }

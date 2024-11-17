@@ -16,9 +16,7 @@ void* startModMenuThread(JavaVM* vm) {
 
     LOGE("thread::", "Thread foi anexada");
     jclass clazz = env->FindClass("java/lang/Class");
-    char str[255] = {0};
-    sprintf(str, "FindClass: %p", str);
-    LOGI("thread::", (const char*)str);
+    LOGI("thread::", "FindClass: %q", clazz);
     return nullptr;
 }
 

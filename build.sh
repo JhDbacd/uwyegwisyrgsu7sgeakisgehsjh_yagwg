@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo $PWD
 curl -O https://dl.google.com/android/repository/android-ndk-r27c-linux.zip > /dev/null
 unzip android-ndk-r27c-linux > /dev/null
 export ANDROID_NDK=$HOME/android-ndk-r27c

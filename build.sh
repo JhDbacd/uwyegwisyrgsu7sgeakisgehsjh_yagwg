@@ -9,11 +9,11 @@ bash cmake-3.31.0-linux-x86_64.sh > /dev/null
 sudo apt-get update && sudo apt-get install -y build-essential 
 mkdir -p build/realeses/armeabi-v7a
 ls $ANDROIR_NDK
-ls build/realeses/armeabi-v7a
 cmake -H. \
 -B./build/realeses/armeabi-v7a \
 -DANDROID_ABI=armeabi-v7a \
 -DANDROID_PLATFORM=android-30 \
 -DANDROID_NDK=$ANDROID_NDK \
 -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake
+ls build/realeses/armeabi-v7a
 make ./build/realeses/armeabi-v7a
